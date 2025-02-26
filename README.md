@@ -1,6 +1,1 @@
-"# complaints-mgt-sys-servlets" 
-"# Complains-mgt-sys" 
-"# Complains-mgt-sys" 
-"# Complaints-mgt-sys" 
-"# Complaints-mgt-sys" 
-"# complaints-mgt-sys-servlets" 
+Hostel complaints management system using java,jsp,servlets and mysql..
