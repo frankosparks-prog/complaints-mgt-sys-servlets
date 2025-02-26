@@ -16,7 +16,12 @@
 /*            height: 100vh;*/
         }
         .container {
-            background: white;
+             background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjOglaGIFeUgqWRvrUKLjDphJwx6mhYZSwpg&s");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+/*            background: white;*/
+background: transparent;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
@@ -146,7 +151,7 @@
                 <input type="text" id="name" name="name" placeholder="John Doe" required>
             </div>-->
             <div class="input-group">
-                <label for="regNo">Registration Number</label>
+                <label for="regNo">Confirm Registration Number</label>
                 <input type="text" id="regNo" name="regNo" placeholder="S13/07798/22" required>
             </div>
             <div class="input-group">
@@ -170,7 +175,7 @@
             </div>
             <div class="input-group">
                 <label for="complaint">Complaint</label>
-                <textarea name="complaintText" rows="4" placeholder="Enter your complaint..." required></textarea>
+                <textarea name="complaintText" id="complaintText" rows="4" placeholder="Enter your complaint..." required></textarea>
             </div>
             <button type="submit" class="submit-btn">Submit Complaint</button>
         </form>

@@ -105,7 +105,7 @@ public class NewServlet extends HttpServlet {
         String regNo = request.getParameter("regNo");
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");  // ✅ Ensure JDBC driver is loaded
+            Class.forName("com.mysql.cj.jdbc.Driver");  // Ensure JDBC driver is loaded
 
             try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
                 String query = "INSERT INTO students (first_name, last_name, contact, email, password, regNo) VALUES (?, ?, ?, ?, ?, ?)";
@@ -114,7 +114,7 @@ public class NewServlet extends HttpServlet {
                     stmt.setString(2, lastName);
                     stmt.setString(3, contact);
                     stmt.setString(4, email);
-                    stmt.setString(5, hashPassword(password));  // ✅ Store hashed password
+                    stmt.setString(5, hashPassword(password));  // Store hashed password
                     stmt.setString(6, regNo);
 
                     int rowsAffected = stmt.executeUpdate();
@@ -142,7 +142,7 @@ public class NewServlet extends HttpServlet {
                 String query = "SELECT * FROM students WHERE regNo = ? AND password = ?";
                 try (PreparedStatement stmt = conn.prepareStatement(query)) {
                     stmt.setString(1, regNo);
-                    stmt.setString(2, hashPassword(password));  // ✅ Compare hashed password
+                    stmt.setString(2, hashPassword(password));  // Compare hashed password
 
                     try (ResultSet rs = stmt.executeQuery()) {
                         if (rs.next()) {
@@ -171,11 +171,26 @@ public class NewServlet extends HttpServlet {
         }
     }
 
-    private void displayErrorPage(HttpServletResponse response, String errorMessage) throws IOException {
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<html><body><h2>" + errorMessage + "</h2><a href='index.html'>Go Back</a></body></html>");
-        }
+  private void displayErrorPage(HttpServletResponse response, String errorMessage) throws IOException {
+    response.setContentType("text/html");
+    try (PrintWriter out = response.getWriter()) {
+        out.println("<html><head><title>Error</title>");
+        out.println("<style>");
+        out.println("body { font-family: Arial, sans-serif; background-color: #f8d7da; text-align: center; padding: 50px; }");
+        out.println(".error-container { background: white; padding: 20px; border-radius: 8px; display: inline-block; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }");
+        out.println("h2 { color: #721c24; }");
+        out.println("a { text-decoration: none; color: #0056b3; font-weight: bold; }");
+        out.println("a:hover { text-decoration: underline; }");
+        out.println("</style>");
+        out.println("</head><body>");
+        out.println("<div class='error-container'>");
+        out.println("<h2>" + errorMessage + "</h2>");
+        out.println("<a href='index.html'>Go Back</a>");
+        out.println("</div>");
+        out.println("</body></html>");
     }
+}
+
 
     @Override
     public String getServletInfo() {

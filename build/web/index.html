@@ -92,64 +92,102 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     </div>
 </body>
 </html>-->
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login | My Web App</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #4facfe, #00f2fe);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                              url("https://internationallinkages.egerton.ac.ke/sites/default/files/gbb-uploads/image-13.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            color: white; /* Ensures text is visible */
         }
+
         .login-container {
-            background: white;
+            background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 320px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+            width: 350px;
             text-align: center;
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
+
         .login-container h2 {
-            margin-bottom: 1rem;
-            color: #333;
+            margin-bottom: 1.5rem;
+            color: white; /* Improved contrast */
+            font-size: 1.8rem;
         }
+
         .input-group {
             margin-bottom: 1rem;
             text-align: left;
         }
+
         .input-group label {
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
+            color: white;
         }
+
         .input-group input {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
             border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: black;
             font-size: 16px;
+            outline: none;
         }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
         .login-btn {
             background: #4facfe;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 12px;
             width: 100%;
             border-radius: 5px;
-            cursor: pointer;
             font-size: 16px;
-            transition: background 0.3s;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
         }
+
         .login-btn:hover {
             background: #00c3ff;
+            transform: scale(1.05);
+        }
+
+        .acc { 
+            display: block;
+            color: #00c3ff;  
+            margin-top: 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .acc:hover {
+            color: #fff;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -160,14 +198,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <input type="hidden" name="action" value="login">
             <div class="input-group">
                 <label for="regNo">Registration number</label>
-                <input type="text" id="regNo" name="regNo" required>
+                <input type="text" id="regNo" name="regNo" placeholder="Enter your Registration Number" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" placeholder="Enter your Password" required>
             </div>
             <button type="submit" class="login-btn">Login</button>
-           <a href="Sign_up.html" class="">Create account?</a>
+            <a href="Sign_up.html" class="acc">Create account?</a>
         </form>
     </div>
 </body>

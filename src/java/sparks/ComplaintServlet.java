@@ -108,8 +108,8 @@ public class ComplaintServlet extends HttpServlet {
         String dbUser = "Admin";
         String dbPassword = "admin";
 
-        // SQL query to insert complaint
-        String sql = "INSERT INTO complaints (description, student_id) VALUES (?, ?)";
+         // SQL query to insert complaint
+        String sql = "INSERT INTO complaints (description, student_id, halls, block, roomno) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword)) {
             // Get student ID (for this example, we are using regNumber as student_id, but you should use a proper lookup)
@@ -122,8 +122,11 @@ public class ComplaintServlet extends HttpServlet {
 
             // Prepare the SQL statement
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-                stmt.setString(1, complaintText);
-                stmt.setInt(2, studentId);
+                stmt.setString(1, complaintText); // Set complaint description
+                stmt.setInt(2, studentId); // Set student ID
+                stmt.setString(3, halls); // Set halls
+                stmt.setString(4, block); // Set block
+                stmt.setString(5, room); // Set room number
 
                 // Execute the insert
                 int rowsAffected = stmt.executeUpdate();
@@ -141,10 +144,10 @@ public class ComplaintServlet extends HttpServlet {
     }
 
     // Method to get student ID based on the registration number
-    private int getStudentIdByRegNumber(String regNumber, Connection conn) throws SQLException {
-        String sql = "SELECT student_id FROM students WHERE contact = ?";
+    private int getStudentIdByRegNumber(String regNo, Connection conn) throws SQLException {
+        String sql = "SELECT student_id FROM students WHERE regNo = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, regNumber); // Assuming regNumber is stored as contact in the students table
+            stmt.setString(1, regNo); // Assuming regNumber is stored as contact in the students table
             var resultSet = stmt.executeQuery();
             if (resultSet.next()) {
                 return resultSet.getInt("student_id");
