@@ -12,19 +12,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
+/*            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjOglaGIFeUgqWRvrUKLjDphJwx6mhYZSwpg&s");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: center;*/
 /*            background: linear-gradient(to right, #4facfe, #00f2fe);*/
 /*            height: 100vh;*/
         }
+        .cont{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         .container {
-             background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjOglaGIFeUgqWRvrUKLjDphJwx6mhYZSwpg&s");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center;
-/*            background: white;*/
-background: transparent;
+            background: white;
+/*            background: transparent;*/
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 0 10px 10px 0;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+/*            backdrop-filter: blur(10px);*/
             text-align: center;
             width: 600px;
         }
@@ -63,6 +69,22 @@ background: transparent;
             transition: background 0.3s ease;
         }
         .logout-btn:hover { background: #e84118; }
+        .top{
+            height: 20px;
+        }
+         /* Image styling */
+        .image-container {
+            width: 650px;
+            height: 48rem;
+            border-radius: 10px 0 0 10px;
+        }
+        /* history/logout */
+        .hist{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
     </style>
     <script>
     function updateBlocks() {
@@ -142,6 +164,10 @@ background: transparent;
 
 </head>
 <body>
+    <div class="cont">
+        <div>
+            <img src="https://media.istockphoto.com/id/471721769/photo/pencil-lying-on-top-of-a-complaint-form.jpg?s=1024x1024&w=is&k=20&c=C829C1INWefrY55JEvQ0dj1qA-RCpcV7Y0RHOiTAfBg=" class="image-container" alt="alt"/>
+        </div>
     <div class="container">
         <h1>Welcome, <%= session.getAttribute("username") != null ? session.getAttribute("username") : "Guest" %>!</h1>
         <p>You have successfully logged in. Fill the form below!</p>
@@ -178,8 +204,19 @@ background: transparent;
                 <textarea name="complaintText" id="complaintText" rows="4" placeholder="Enter your complaint..." required></textarea>
             </div>
             <button type="submit" class="submit-btn">Submit Complaint</button>
+            <div class="hist">
+             <a href="History.jsp"><img src="https://www.shutterstock.com/shutterstock/photos/2471982023/display_1500/stock-vector-vector-illustration-of-history-icon-on-a-white-background-2471982023.jpg" width="50px" height="50px" alt="history"/></a>
+             <a href="login.html" class="logout-btn">Logout</a>   
+            </div>
+            
         </form>
-        <a href="index.html" class="logout-btn">Logout</a>
+        
+    </div>
+        
+<!--        <div class="top">
+        <a href="login.html" class="logout-btn">Logout</a>
+        <button class="logout-btn">Profile</button>
+        </div>-->
     </div>
 </body>
 </html>

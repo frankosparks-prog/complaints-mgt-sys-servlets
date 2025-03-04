@@ -32,13 +32,22 @@
         a:hover {
             background: #0056b3;
         }
+        .flex{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Your complaint has been submitted successfully!</h2>
-        <p>We will review your complaint and get back to you.</p>
-        <a href="welcome.jsp">Submit Another Complaint</a>
+        <p>We will review your complaint and get back to you. View history for progress review.</p>
+        <div class="flex">
+            <a href="welcome.jsp">Submit Another Complaint</a>
+            <a href="History.jsp">View History</a>
+        </div>
+        
     </div>
 </body>
 </html>

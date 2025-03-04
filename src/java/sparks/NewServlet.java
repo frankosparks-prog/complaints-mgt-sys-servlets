@@ -148,6 +148,7 @@ public class NewServlet extends HttpServlet {
                         if (rs.next()) {
                             HttpSession session = request.getSession();
                             session.setAttribute("username", rs.getString("first_name") + " " + rs.getString("last_name"));
+                            session.setAttribute("student_id", rs.getInt("student_id"));
                             response.sendRedirect("welcome.jsp");
                         } else {
                             displayErrorPage(response, "Invalid registration number or password.");
@@ -185,7 +186,7 @@ public class NewServlet extends HttpServlet {
         out.println("</head><body>");
         out.println("<div class='error-container'>");
         out.println("<h2>" + errorMessage + "</h2>");
-        out.println("<a href='index.html'>Go Back</a>");
+        out.println("<a href='login.html'>Go Back</a>");
         out.println("</div>");
         out.println("</body></html>");
     }

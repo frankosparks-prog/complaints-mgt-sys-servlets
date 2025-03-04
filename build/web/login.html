@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | My Web App</title>
+    <title>Login Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,25 +15,27 @@
             display: flex;
             justify-content: center;
             align-items: center;
-/*            height: 100vh;*/
+            height: 100vh;
             margin: 0;
-            color: white; /* Ensures text is visible */
+            color: white;
+            background-color: #f5f5f5;
         }
 
-        .signup-container {
-            background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+        /* Login form styling */
+        .login-container {
+            background: rgba(255, 255, 255, 0.2); 
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
             width: 500px;
             text-align: center;
-            backdrop-filter: blur(10px); /* Frosted glass effect */
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        .signup-container h2 {
+        .login-container h2 {
             margin-bottom: 1.5rem;
-            color: white; /* Improved contrast */
+            color: white;
             font-size: 1.8rem;
         }
 
@@ -64,7 +66,7 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-        .signup-btn {
+        .login-btn {
             background: #4facfe;
             color: white;
             border: none;
@@ -77,47 +79,44 @@
             transition: background 0.3s ease, transform 0.2s ease;
         }
 
-        .signup-btn:hover {
+        .login-btn:hover {
             background: #00c3ff;
             transform: scale(1.05);
         }
 
-        .mb-4 {
-            margin-bottom: 2rem;
+        .acc {
+            display: block;
+            color: #00c3ff;
+            margin-top: 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
         }
+
+        .acc:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
-    <div class="signup-container">
-        <h2 class="mb-4">Sign Up</h2>
-        <form action="/WebApplication1/signup" method="post">
-            <input type="hidden" name="action" value="signup">
-            <div class="input-group">
-                <label for="regNo">Registration number</label>
-                <input type="text" id="regNo" name="regNo" placeholder="Enter your Registration Number" required>
-            </div>
-            <div class="input-group">
-                <label for="first_name">First Name</label>
-                <input type="text" id="first_name" name="first_name" placeholder="Enter your First Name" required>
-            </div>
-            <div class="input-group">
-                <label for="last_name">Last Name</label>
-                <input type="text" id="last_name" name="last_name" placeholder="Enter your Last Name" required>
-            </div>
-            <div class="input-group">
-                <label for="contact">Contact</label>
-                <input type="text" id="contact" name="contact" placeholder="Enter your Contact Number" required>
-            </div>
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your Email" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your Password" required>
-            </div>
-            <button type="submit" class="signup-btn">Sign Up</button>
-        </form>
-    </div>
+        <!-- Form Section -->
+        <div class="login-container">
+            <h2>Login</h2>
+            <form action="/WebApplication1/login" method="post">
+                <input type="hidden" name="action" value="login">
+                <div class="input-group">
+                    <label for="regNo">Registration number</label>
+                    <input type="text" id="regNo" name="regNo" placeholder="Enter your Registration Number" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+                <a href="Sign_up.html" class="acc">Create account?</a>
+            </form>
+        </div>
 </body>
 </html>
