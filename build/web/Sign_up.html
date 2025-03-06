@@ -85,6 +85,19 @@
         .mb-4 {
             margin-bottom: 2rem;
         }
+        .acc {
+            display: block;
+            color: #00c3ff;
+            margin-top: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .acc:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -117,6 +130,7 @@
                 <input type="password" id="password" name="password" placeholder="Enter your Password" required>
             </div>
             <button type="submit" class="signup-btn">Sign Up</button>
+            <a href="login.html" class="acc">Back to login</a>
         </form>
     </div>
 </body>
