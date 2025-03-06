@@ -119,7 +119,7 @@ public class NewServlet extends HttpServlet {
 
                     int rowsAffected = stmt.executeUpdate();
                     if (rowsAffected > 0) {
-                        response.sendRedirect("index.html");
+                        response.sendRedirect("login.html");
                     } else {
                         displayErrorPage(response, "Signup failed. Please try again.");
                     }
