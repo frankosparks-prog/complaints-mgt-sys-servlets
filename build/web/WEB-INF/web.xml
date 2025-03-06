@@ -32,5 +32,9 @@
         <servlet-name>UpdateComplaintServlet</servlet-name>
         <url-pattern>/UpdateComplaintServlet</url-pattern>
     </servlet-mapping>
-
+    <welcome-file-list>
+        <welcome-file>
+            Landing.html
+        </welcome-file>
+    </welcome-file-list>
 </web-app>

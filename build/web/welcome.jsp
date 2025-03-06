@@ -171,7 +171,7 @@
     <div class="container">
         <h1>Welcome, <%= session.getAttribute("username") != null ? session.getAttribute("username") : "Guest" %>!</h1>
         <p>You have successfully logged in. Fill the form below!</p>
-        <form action="/WebApplication1/ComplaintServlet" method="post" onsubmit="return validateForm(event)">
+        <form action="/Complaints/ComplaintServlet" method="post" onsubmit="return validateForm(event)">
 <!--            <div class="input-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="John Doe" required>
